@@ -2,7 +2,7 @@
  * file: sound_track_looper_three.js
  * type: JavaScript
  * author: karbytes
- * date: 01_FEBRUARY_2025
+ * date: 21_FEBRUARY_2025
  * license: PUBLIC_DOMAIN
  */
 
@@ -164,6 +164,7 @@ function get_menu_options() {
         'sicko_mode_ft_drake_travis_scott_2018_downloaded_via_aiseo_by_karbytes_25january2025.mp3',
         'solfeggio_tones_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_24january2025.mp3',
         'the_aquatic_garden_of_extra_celestial_delights_shpongle_released_2013_downloaded_by_karbytes_29july2024.mp3',
+	'the_conjuring_by_megadeth_originally_released_1986_downloaded_by_karbytes_20february2025.mp3',
         'the_battle_fought_by_agrimonia_released_2013_downloaded_via_cobalt_tools_by_karbytes_on_17january2025.mp3',
         'train_san_jose_california_07october2024.mp3',
         'unlock_akashic_records_💫_remember_mastery_🌈_ultra_shamanic_drums_[abridged_to_ten_minutes]_lokosmotives_2018_downloaded_by_karbytes_27september2024.mp3',
