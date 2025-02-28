@@ -134,6 +134,7 @@ function get_menu_options() {
         'instagram_karbytes_13_june_2023_part_2.mp3',
         'instagram_karbytes_28_october_2023_part_1.mp3',
         'medieval_library_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_24january2025.mp3',
+        'medieval_village_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_28february2025_(animal_vocalizations_and_occasional_blacksmithing).mp3',
         'memories_of_children_david_darling_healing_music_project_radiance_2003_downloaded_by_karbytes_on_13june2024.mp3',
         'merced_manure_sound_files_karlina_beringer_2008_to_2009_track_0_retrieved_on_24_december_2023_[clock_shatter].mp3',
         'pig_boi_24_june_2023.mp3',
@@ -169,8 +170,8 @@ function get_menu_options() {
         'the_battle_fought_by_agrimonia_released_2013_downloaded_via_cobalt_tools_by_karbytes_on_17january2025.mp3',
         'train_san_jose_california_07october2024.mp3',
         'unlock_akashic_records_💫_remember_mastery_🌈_ultra_shamanic_drums_[abridged_to_ten_minutes]_lokosmotives_2018_downloaded_by_karbytes_27september2024.mp3',
-        'medieval_village_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_28february2025_(animal_vocalizations_and_occasional_blacksmithing).mp3',
-	'the_pilgrim_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_28february2025_(contemplative_instrumental).mp3'
+	'the_pilgrim_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_28february2025_(contemplative_instrumental).mp3',
+        'vintage_office_sounds_from_mynoise_dot_net_downloaded_by_karbytes_21december2024.mp3'
     ];
     
     // Build the HTML string for each sound file
