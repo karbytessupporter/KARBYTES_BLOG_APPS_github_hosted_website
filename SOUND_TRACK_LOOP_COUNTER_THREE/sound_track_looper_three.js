@@ -2,7 +2,7 @@
  * file: sound_track_looper_three.js
  * type: JavaScript
  * author: karbytes
- * date: 21_FEBRUARY_2025
+ * date: 28_FEBRUARY_2025
  * license: PUBLIC_DOMAIN
  */
 
@@ -169,7 +169,8 @@ function get_menu_options() {
         'the_battle_fought_by_agrimonia_released_2013_downloaded_via_cobalt_tools_by_karbytes_on_17january2025.mp3',
         'train_san_jose_california_07october2024.mp3',
         'unlock_akashic_records_💫_remember_mastery_🌈_ultra_shamanic_drums_[abridged_to_ten_minutes]_lokosmotives_2018_downloaded_by_karbytes_27september2024.mp3',
-        'vintage_office_sounds_from_mynoise_dot_net_downloaded_by_karbytes_21december2024.mp3'
+        'medieval_village_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_28february2025_(animal_vocalizations_and_occasional_blacksmithing).mp3',
+	'the_pilgrim_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_28february2025_(contemplative_instrumental).mp3'
     ];
     
     // Build the HTML string for each sound file
