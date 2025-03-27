@@ -172,6 +172,7 @@ function get_menu_options() {
         'plaintive_droning_by_karbytes_17march2025_p3.mp3',
         'protection_racket_by_napalm_death_released_2012_downloaded_via_cobalt_tools_by_karbytes_on_17january2025.mp3',
         'pyramid_meditation_music_kings_chamber_frequencies_[downloaded_from_magnetic_minds_by_karbytes_on_16june2024].mp3',
+        'shepardmadness_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_26march2025.mp3',
         'sicko_mode_ft_drake_travis_scott_2018_downloaded_via_aiseo_by_karbytes_25january2025.mp3',
         'solfeggio_tones_by_mynoise_dot_net_customized_and_downloaded_by_karbytes_24january2025.mp3',
         'the_aquatic_garden_of_extra_celestial_delights_shpongle_released_2013_downloaded_by_karbytes_29july2024.mp3',
