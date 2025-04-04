@@ -2,7 +2,7 @@
  * file: sound_track_looper_two.js
  * type: JavaScript
  * author: karbytes
- * date: 26_JANUARY_2025
+ * date:04_APRIL_2025
  * license: PUBLIC_DOMAIN
  */
 
@@ -88,7 +88,8 @@ function generate_time_stamp() {
  * @return {String} a sequence of characters representing some natural number of OPTIONs inside of a SELECT menu.
  */
 function get_menu_options() {
-    let file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/SOUND_TRACK_LOOP_COUNTER_TWO/';
+    // let file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/SOUND_TRACK_LOOP_COUNTER_TWO/';
+    let file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/SOUND_TRACK_LOOP_COUNTER_TWO/';
     let HTML_string = '';
     
     // Define the list of sound eleven sound files and their display names.
