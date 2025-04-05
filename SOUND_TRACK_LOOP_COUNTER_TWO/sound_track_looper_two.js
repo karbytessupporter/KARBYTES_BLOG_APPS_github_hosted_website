@@ -90,7 +90,7 @@ function generate_time_stamp() {
 function get_menu_options() {
     // let file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/SOUND_TRACK_LOOP_COUNTER_TWO/';
     // let file_path_root = 'https://github.com/karlinarayberinger/KARBYTES_BLOG_APPS_github_hosted_website/tree/main/SOUND_TRACK_LOOP_COUNTER_TWO/';
-    let file_path_root = '';
+    let file_path_root = '/';
     let HTML_string = '';
     
     // Define the list of sound eleven sound files and their display names.
