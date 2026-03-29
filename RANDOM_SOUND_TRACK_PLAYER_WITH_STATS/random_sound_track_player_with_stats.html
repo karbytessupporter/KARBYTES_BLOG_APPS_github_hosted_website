@@ -116,7 +116,7 @@
     // "wrapper" function
     function keep_session_active() {
       startPlayingSilentSoundTracks();
-    }*/
+    }
     /*********************************************************************************************/
 
     // A list of non-silent audio files to play one-at-a-time in a randomized fashion after clicking the startButton.
@@ -218,15 +218,7 @@
 
     audioPlayer.addEventListener("ended", () => {
       playNextRandomSong();
-      keep_session_active();
     });
-
-    /* document.getElementById("startButton").addEventListener("click", () => {
-      if (!isPlaying) {
-        isPlaying = true;
-        playNextRandomSong();
-      }
-    }); */
 
     const startButton = document.getElementById("startButton");
 
@@ -238,14 +230,13 @@
       }
     });
 
-    /* document.getElementById("stopButton").addEventListener("click", () => {
-      isPlaying = false;
-      audioPlayer.pause();
-      audioPlayer.removeAttribute("src");
-      audioPlayer.load();
-      statusBox.textContent = "Stopped.";
-    }); */
-
+    startButton.addEventListener("click", () => {
+      if (!isPlaying) {
+        isPlaying = true;
+        keep_session_active();
+      }
+    });
+    
     renderStats();
   </script>
 </body>
