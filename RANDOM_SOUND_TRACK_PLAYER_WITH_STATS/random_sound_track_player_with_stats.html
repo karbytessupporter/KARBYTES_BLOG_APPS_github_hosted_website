@@ -90,7 +90,7 @@
 
     // List of silent audio file URLs
     // const file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
-    const file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
+    /*const file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
     const silentSoundTracks = [
       file_path_root + 'empty_audio_10_seconds.mp3', 
       file_path_root + 'empty_audio_30_seconds.mp3', 
@@ -98,7 +98,7 @@
     ];
 
     // Create and configure silent audio elements
-    const audioElements = silentSoundTracks.map(src => {
+    const silentAudioElements = silentSoundTracks.map(src => {
       const audio = new Audio(src);
       audio.loop = true;
       return audio;
@@ -106,13 +106,18 @@
 
     // Function to start playback on user interaction (when the startButton is clicked).
     function startPlayingSilentSoundTracks() {
-      startPlayingSilentSoundTracks(); // prevent browser tab from pausing between songs
       audioElements.forEach(audio => {
         audio.play().catch(err => {
           console.warn("Failed to play track:", err);
         });
+        startPlayingSilentSoundTracks(); // prevent browser tab from pausing between songs
       });
     }
+    // "wrapper" function
+    function keep_session_active() {
+      startPlayingSilentSoundTracks();
+    }*/
+    /*********************************************************************************************/
 
     // A list of non-silent audio files to play one-at-a-time in a randomized fashion after clicking the startButton.
     const mp3Files = [
