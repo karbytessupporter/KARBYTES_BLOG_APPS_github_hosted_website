@@ -20,27 +20,23 @@
       background: #111;
       color: #eee;
     }
-
     button {
       font-size: 1rem;
       padding: 0.75rem 1rem;
       margin-right: 0.5rem;
       cursor: pointer;
     }
-
     #status, #stats {
       margin-top: 1rem;
       padding: 1rem;
       background: #222;
       border-radius: 8px;
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 1rem;
     }
-
     th, td {
       padding: 0.5rem;
       border-bottom: 1px solid #444;
@@ -52,7 +48,6 @@
   <h1>RANDOM_SOUND_TRACK_PLAYER_WITH_STATS</h1>
 
   <button id="startButton">Start Playing Songs</button>
-  <!-- <button id="stopButton">Stop</button> -->
 
   <div id="status">Not playing.</div>
 
@@ -72,6 +67,7 @@
 
   <!-- <audio id="audioPlayer" controls></audio> -->
   <audio id="audioPlayer"></audio>
+  <audio id="silentAudioPlayer"></audio>
 
 <script>
   /**
@@ -87,7 +83,7 @@
    * keeps the web application browser tab active until the browser tab is closed).
    */
 
-  // List of silent audio file URLs
+  // Create a list of silent audio file URLs.
   // const file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
   const file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
   const silentSoundTracks = [
@@ -96,46 +92,28 @@
     file_path_root + 'empty_audio_45_seconds.mp3'
   ];
 
-  // Create and configure silent audio elements
+  // Create and configure silent audio elements.
   const silentAudioElements = silentSoundTracks.map(src => {
     const audio = new Audio(src);
-    audio.preload = "auto";
-    audio.volume = 0;
-    audio.loop = false; // important: do not loop in sync
+    audio.loop = true;
     return audio;
   });
 
-  let silentWrapperStarted = false;
-
-  // Function to start playback on user interaction (when the user clicks a button).
   function startPlayingSilentSoundTracks() {
-    if (silentWrapperStarted) return;
-    silentWrapperStarted = true;
-
-    const staggerDelays = [0, 10000, 20000]; // milliseconds
-
-    silentAudioElements.forEach((audio, index) => {
-      // restart each track whenever it ends
-      audio.addEventListener("ended", () => {
-        audio.currentTime = 0;
-        audio.play().catch(err => {
-          console.warn("Failed to replay silent track:", err);
-        });
+    silentAudioElements.forEach(audio => {
+      audio.play().catch(err => {
+        console.warn("Failed to play track:", err);
       });
-
-      // start each track at a different time
-      setTimeout(() => {
-        audio.play().catch(err => {
-          console.warn("Failed to play silent track:", err);
-        });
-      }, staggerDelays[index] || 0);
     });
   }
-
   // "wrapper" function
   function keep_session_active() {
     startPlayingSilentSoundTracks();
   }
+
+      const silentAudioPlayer = document.getElementById("silentAudioPlayer");
+
+  /***************************************************************/
 
     // A list of non-silent audio files to play one-at-a-time in a randomized fashion after clicking the startButton.
     const mp3Files = [
