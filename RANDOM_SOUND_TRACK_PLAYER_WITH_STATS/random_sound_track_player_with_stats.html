@@ -73,52 +73,72 @@
   <!-- <audio id="audioPlayer" controls></audio> -->
   <audio id="audioPlayer"></audio>
 
-  <script>
+<script>
+  /**
+   * On mobile devices such as an Android smartphone, only one browser tab and only one
+   * non-OS software application can be actively featured in the user's "viewport" per
+   * instant. By contrast, on more fully-featured machines such as a Ubuntu laptop computer,
+   * multiple browser tabs and multiple non-OS software applications can be running simultaneously
+   * inside of one "viewport" (i.e. user experience instant).
+   * 
+   * A "workaround" to prevent the randomized sound track player from stopping between songs on a
+   * mobile device is to (continuously) play multiple silent audio files which have staggered playtimes 
+   * so that there is always at least one of those silent audio files playing "in the background" (which 
+   * keeps the web application browser tab active until the browser tab is closed).
+   */
 
-    /**
-     * On mobile devices such as an Android smartphone, only one browser tab and only one
-     * non-OS software application can be actively featured in the user's "viewport" per
-     * instant. By contrast, on more fully-featured machines such as a Ubuntu laptop computer,
-     * multiple browser tabs and multiple non-OS software applications can be running simultaneously
-     * inside of one "viewport" (i.e. user experience instant).
-     * 
-     * A "workaround" to prevent the randomized sound track player from stopping between songs on a
-     * mobile device is to (continuously) play multiple silent audio files which have staggered playtimes 
-     * so that there is always at least one of those silent audio files playing "in the background" (which 
-     * keeps the web application browser tab active until the browser tab is closed).
-     */
+  // List of silent audio file URLs
+  // const file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
+  const file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
+  const silentSoundTracks = [
+    file_path_root + 'empty_audio_10_seconds.mp3',
+    file_path_root + 'empty_audio_30_seconds.mp3',
+    file_path_root + 'empty_audio_45_seconds.mp3'
+  ];
 
-    // List of silent audio file URLs
-    // const file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
-    const file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
-    const silentSoundTracks = [
-      file_path_root + 'empty_audio_10_seconds.mp3', 
-      file_path_root + 'empty_audio_30_seconds.mp3', 
-      file_path_root + 'empty_audio_45_seconds.mp3'
-    ];
+  // Create and configure silent audio elements
+  const silentAudioElements = silentSoundTracks.map(src => {
+    const audio = new Audio(src);
+    audio.preload = "auto";
+    audio.volume = 0;
+    audio.loop = false; // important: do not loop in sync
+    return audio;
+  });
 
-    // Create and configure silent audio elements
-    const silentAudioElements = silentSoundTracks.map(src => {
-      const audio = new Audio(src);
-      audio.loop = true;
-      return audio;
-    });
+  let silentWrapperStarted = false;
 
-    // Function to start playback on user interaction (when the user clicks a button).
-    function startPlayingSilentSoundTracks() {
-      audioElements.forEach(audio => {
+  // Function to start playback on user interaction (when the user clicks a button).
+  function startPlayingSilentSoundTracks() {
+    if (silentWrapperStarted) return;
+    silentWrapperStarted = true;
+
+    const staggerDelays = [0, 10000, 20000]; // milliseconds
+
+    silentAudioElements.forEach((audio, index) => {
+      // restart each track whenever it ends
+      audio.addEventListener("ended", () => {
+        audio.currentTime = 0;
         audio.play().catch(err => {
-          console.warn("Failed to play track:", err);
+          console.warn("Failed to replay silent track:", err);
         });
-        startPlayingSilentSoundTracks(); // prevent browser tab from pausing between songs
       });
-    }
-    // "wrapper" function
-    function keep_session_active() {
-      startPlayingSilentSoundTracks();
-    }
-    /*********************************************************************************************/
 
+      // start each track at a different time
+      setTimeout(() => {
+        audio.play().catch(err => {
+          console.warn("Failed to play silent track:", err);
+        });
+      }, staggerDelays[index] || 0);
+    });
+  }
+
+  // "wrapper" function
+  function keep_session_active() {
+    startPlayingSilentSoundTracks();
+  }
+</script>
+
+  <script>
     // A list of non-silent audio files to play one-at-a-time in a randomized fashion after clicking the startButton.
     const mp3Files = [
       "guitar_karbytes_24february2026_p0.mp3",
@@ -222,20 +242,14 @@
 
     const startButton = document.getElementById("startButton");
 
-    startButton.addEventListener("click", () => {
-      if (!isPlaying) {
-        isPlaying = true;
-        startButton.style.display = "none"; // hide button permanently
-        playNextRandomSong();
-      }
-    });
-
-    startButton.addEventListener("click", () => {
-      if (!isPlaying) {
-        isPlaying = true;
-        keep_session_active();
-      }
-    });
+startButton.addEventListener("click", () => {
+  if (!isPlaying) {
+    isPlaying = true;
+    startButton.style.display = "none"; // hide button permanently
+    keep_session_active();
+    playNextRandomSong();
+  }
+});
     
     renderStats();
   </script>
