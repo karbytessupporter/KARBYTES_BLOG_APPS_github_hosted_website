@@ -48,7 +48,7 @@
     }
   </style>
 </head>
-<body onload="keep_session_active()">
+<body>
   <h1>RANDOM_SOUND_TRACK_PLAYER_WITH_STATS</h1>
 
   <button id="startButton">Start Playing Songs</button>
@@ -104,7 +104,7 @@
       return audio;
     });
 
-    // Function to start playback on user interaction (when the web page is loaded).
+    // Function to start playback on user interaction (when the user clicks a button).
     function startPlayingSilentSoundTracks() {
       audioElements.forEach(audio => {
         audio.play().catch(err => {
@@ -218,6 +218,7 @@
 
     audioPlayer.addEventListener("ended", () => {
       playNextRandomSong();
+      keep_session_active();
     });
 
     /* document.getElementById("startButton").addEventListener("click", () => {
