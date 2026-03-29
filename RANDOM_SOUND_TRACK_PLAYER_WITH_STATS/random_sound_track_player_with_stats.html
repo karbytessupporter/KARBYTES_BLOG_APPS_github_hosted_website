@@ -48,7 +48,7 @@
     }
   </style>
 </head>
-<body onload="startPlayingSilentSoundTracks()">
+<body>
   <h1>RANDOM_SOUND_TRACK_PLAYER_WITH_STATS</h1>
 
   <button id="startButton">Start Playing Songs</button>
@@ -104,8 +104,9 @@
       return audio;
     });
 
-    // Function to start playback on user interaction (when the web page is loaded).
+    // Function to start playback on user interaction (when the startButton is clicked).
     function startPlayingSilentSoundTracks() {
+      startPlayingSilentSoundTracks(); // prevent browser tab from pausing between songs
       audioElements.forEach(audio => {
         audio.play().catch(err => {
           console.warn("Failed to play track:", err);
