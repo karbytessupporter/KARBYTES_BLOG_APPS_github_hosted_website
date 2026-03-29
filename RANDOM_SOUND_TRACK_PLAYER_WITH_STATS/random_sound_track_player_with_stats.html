@@ -48,7 +48,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="keep_session_active()">
   <h1>RANDOM_SOUND_TRACK_PLAYER_WITH_STATS</h1>
 
   <button id="startButton">Start Playing Songs</button>
@@ -90,7 +90,7 @@
 
     // List of silent audio file URLs
     // const file_path_root = 'http://qkbrwfubnh4knc6kkhx6uepccavpwezdf2al7w2quepe3qociegsi3yd.onion/KARBYTES_BLOG_APPS/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
-    /*const file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
+    const file_path_root = 'https://karlinarayberinger.github.io/KARBYTES_BLOG_APPS_github_hosted_website/RANDOM_SOUND_TRACK_PLAYER_WITH_STATS/';
     const silentSoundTracks = [
       file_path_root + 'empty_audio_10_seconds.mp3', 
       file_path_root + 'empty_audio_30_seconds.mp3', 
@@ -104,7 +104,7 @@
       return audio;
     });
 
-    // Function to start playback on user interaction (when the startButton is clicked).
+    // Function to start playback on user interaction (when the web page is loaded).
     function startPlayingSilentSoundTracks() {
       audioElements.forEach(audio => {
         audio.play().catch(err => {
